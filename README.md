@@ -4,17 +4,45 @@ Pulverizr will smash your images down to size. It uses a number of free, and oft
 
 ## Dependencies
 
+If you're on Ubuntu, all of these dependencies can be retrieved using **apt**. Although Pulverizr works best with all its dependencies, 
 
+* [gifsicle](http://www.lcdf.org/gifsicle/) 1.58+
+* [libjpeg](http://www.ijg.org/) (or **libjpeg-progs** if you're using **apt**)
+* [node-promse](http://github.com/kriszyp/node-promise) (**included**)
+* [optipng](http://optipng.sourceforge.net/) 0.6.3+
+* [pngcrush](http://pmt.sourceforge.net/pngcrush/) 1.7.0+
 
 ## Installation
 
+First you'll need to make sure all git submodules have been downloaded. To do this, simply run:
 
+    make
+
+Once you have all the submodules, install Pulverizr to **/usr/local/bin** by running:
+
+    make install
 
 ## Usage
 
-
+    Usage: pulverize [OPTION]... [FILE]...
+    Pulverizr will smash your images down to size.
+    
+    Options:
+    
+     General:
+      -a, --aggressive	uses more aggressive compression algorithms (takes longer, 
+    			works better)
+      --dry-run		print summary but don't actually modify files
+      -q, --quiet		pulverizer will stfu
+      --verbose		verbose mode
+    
+     Traversing:
+      -R, --recursive	scan directories recursively
+    
+     Other:
+      -h, --help		print this handy dandy help page
+      -v, --version		print program version
 
 ## Special Thanks
 
-
-<a href="javascript:(function(){var d=document,j=d.getElementById('\_\_cornify\_nodes'),k=null;var files=['http://cornify.com/js/cornify.js','http://cornify.com/js/cornify\_run.js'];if(j){cornify\_add();}else{k=d.createElement('div');k.id='\_\_cornify\_nodes';d.getElementsByTagName('body')[0].appendChild(k);for(var l=0;l<files.length;l++){j=d.createElement('script');j.src=files[l];k.appendChild(j);}}})();">Unicorns</a>
+See **Dependencies**
