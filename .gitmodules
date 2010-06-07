@@ -1,0 +1,3 @@
+[submodule "lib/node-promise"]
+	path = lib/node-promise
+	url = http://github.com/kriszyp/node-promise.git
