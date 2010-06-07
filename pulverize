@@ -12,8 +12,7 @@
 require.paths.unshift(__dirname + '/lib/node-promise');
 require.paths.unshift('/usr/local/lib/node-promise');
 
-var crypto = require('crypto'),
-	exec = require('child_process').exec,
+var exec = require('child_process').exec,
 	fs = require('fs'),
 	path = require('path'),
 	promise = require('promise');
