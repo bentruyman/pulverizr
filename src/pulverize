@@ -20,6 +20,7 @@ var exec = require('child_process').exec,
 
 var Promise = promise.Promise,
 	all = promise.all,
+	seq = promise.seq,
 	when = promise.when;
 
 // Define constants
@@ -60,6 +61,8 @@ var report = {
 		end: null
 	}
 };
+
+var taskQueue = [];
 
 // Parse the arguments into consumable bits (flags, key/value pairs)
 // TODO: Add ability to set values to parameters passed (e.g. --foo=bar or -f bar) if it's even necessary
@@ -146,7 +149,7 @@ var responses = {
 var tasks = {};
 
 tasks[fileTypes['GIF']] = function (filename, promise) {
-	exec('gifsicle -O -b ' + filename, function (error, stdout, stderror) {
+	exec('gifsicle -O -b "' + filename + '"', function (error, stdout, stderror) {
 		if (error) {
 			if (error.code === 127 && options.loud) {
 				sys.puts('Could not find "gifsicle". Skipping on: ' + filename);
@@ -162,7 +165,7 @@ tasks[fileTypes['JPEG']] = function (filename, promise) {
 	// jpegtran won't let us overwrite the file
 	var jpegtranTmp = generateFilename();
 
-	exec('jpegtran -optimize -outfile ' + jpegtranTmp + ' ' + filename, function (error, stdout, stderror) {
+	exec('jpegtran -optimize -outfile ' + jpegtranTmp + ' "' + filename + '"', function (error, stdout, stderror) {
 		if (error) {
 			if (error.code === 127 && options.loud) {
 				sys.puts('Could not find "jpegtran". Skipping on: ' + filename);
@@ -185,13 +188,13 @@ tasks[fileTypes['PNG']] = function (filename, promise) {
 		optipngLevel = 'o7';
 	} 
 
-	exec('optipng -' + optipngLevel + ' ' + filename, function (error, stdout, stderror) {
+	exec('optipng -' + optipngLevel + ' "' + filename + '"', function (error, stdout, stderror) {
 		if (error) {
 			if (error.code === 127 && options.loud) {
 				sys.puts('Could not find "optipng". Skipping on: ' + filename);
 			}
 		}
-		exec('pngcrush -nofilecheck -q ' + filename + ' ' + pngcrushTmp, function (error, stdout, stderror) {
+		exec('pngcrush -nofilecheck -q "' + filename + '" ' + pngcrushTmp, function (error, stdout, stderror) {
 			if (error) {
 				if (error.code === 127 && options.loud) {
 					sys.puts('Could not find "pngcrush". Skipping on: ' + filename);
@@ -241,15 +244,10 @@ if (options.input.length === 0) {
 		sys.puts('===============================================================================');
 	}
 
-	var promises = [];
-
 	function scan (filename, depth) {
 		var stats = fs.statSync(filename);
 		if (stats.isFile()) {
-			var promise = compress(filename);
-			if (promise !== null) {
-				promises.push(promise);
-			}
+			queue(filename);
 			report.scanned[filename] = true;
 		} else if ((options.recursive || depth == 0) && !report.scanned[filename] && stats.isDirectory()) {
 			depth++;
@@ -264,50 +262,57 @@ if (options.input.length === 0) {
 		scan(filename, 0);
 	});
 
-	all(promises).then(function () {
+	seq(taskQueue).then(function () {
 		report.time.end = Date.parse(new Date());
 		respond('report');
 	});
 }
 
-function compress (filename) {
+function queue (filename) {
 	// Try to find a task for the current file. If nothing is found, no task is executed
 	var task = tasks[fileTypes[extensions[path.extname(filename).substr(1)]]];
 
 	if (task) {
-		var promise = new Promise(),
-			tmp = generateFilename();
+		var promise = new Promise();
 
-		// Copy the old file to a temporary spot
-		exec('cp ' + filename + ' ' + tmp, function (error, stdout, stderr) {
-			task.call(this, tmp, promise).then(function (newStats) {
-				var oldStats = fs.statSync(filename);
-
-				if (options.verbose) {
-					if (newStats.size < oldStats.size) {
-						sys.puts('Compressed ' + filename + ' from ' + oldStats.size + ' bytes down to ' + newStats.size + ' bytes');
-					} else {
-						sys.puts(filename + ' could not be compressed any more');
-					}
-				}
-
-				// Update the report
-				report.size.start += oldStats.size;
-				report.size.end += newStats.size;
-				report.fileCount++;
-
-				// If optimizations were made and this isn't a dry run, copy the new file over
-				if (!options.dry && newStats.size < oldStats.size) {
-					fs.renameSync(tmp, filename);
-				} else {
-					// Remove the temporary file
-					fs.unlinkSync(tmp);
-				}
-			});
+		taskQueue.push(function () {
+			return compress(filename, task, promise);
 		});
-
-		return promise;
 	}
+}
+
+function compress (filename, task, promise) {
+	var tmp = generateFilename();
+
+	// Copy the old file to a temporary spot
+	exec('cp "' + filename + '" ' + tmp, function (error, stdout, stderr) {
+		task.call(this, tmp, promise).then(function (newStats) {
+			var oldStats = fs.statSync(filename);
+
+			if (options.verbose) {
+				if (newStats.size < oldStats.size) {
+					sys.puts('Compressed ' + filename + ' from ' + oldStats.size + ' bytes down to ' + newStats.size + ' bytes');
+				} else {
+					sys.puts(filename + ' could not be compressed any more');
+				}
+			}
+
+			// Update the report
+			report.size.start += oldStats.size;
+			report.size.end += newStats.size;
+			report.fileCount++;
+
+			// If optimizations were made and this isn't a dry run, copy the new file over
+			if (!options.dry && newStats.size < oldStats.size) {
+				fs.renameSync(tmp, filename);
+			} else {
+				// Remove the temporary file
+				fs.unlinkSync(tmp);
+			}
+		});
+	});
+
+	return promise;
 }
 
 function generateFilename () {
@@ -336,4 +341,8 @@ function respond (name) {
 
 	responses[name].apply(this, args);
 	process.exit();
+}
+
+function inspect (obj) {
+	sys.puts(sys.inspect(obj));
 }
