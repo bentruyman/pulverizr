@@ -9,7 +9,7 @@
  * Licensed under the BSD license.
  */
 
-require.paths.unshift(__dirname + '/lib/node-promise');
+require.paths.unshift('../lib/node-promise');
 require.paths.unshift('/usr/local/lib/node-promise');
 
 var exec = require('child_process').exec,
