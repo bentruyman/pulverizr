@@ -294,6 +294,11 @@ function compress (filename) {
 				report.size.end += newStats.size;
 				report.fileCount++;
 
+				// If optimizations were made and this isn't a dry run, copy the new file over
+				if (!options.dry && newStats.size < oldStats.size) {
+					fs.renameSync(tmp, filename);
+				}
+
 				// Remove the temporary file
 				fs.unlinkSync(tmp);
 			});
