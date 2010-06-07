@@ -299,10 +299,10 @@ function compress (filename) {
 				// If optimizations were made and this isn't a dry run, copy the new file over
 				if (!options.dry && newStats.size < oldStats.size) {
 					fs.renameSync(tmp, filename);
+				} else {
+					// Remove the temporary file
+					fs.unlinkSync(tmp);
 				}
-
-				// Remove the temporary file
-				fs.unlinkSync(tmp);
 			});
 		});
 

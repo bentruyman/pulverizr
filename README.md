@@ -4,10 +4,11 @@ Pulverizr will smash your images down to size. It uses a number of free, and oft
 
 ## Dependencies
 
-If you're on Ubuntu, all of these dependencies can be retrieved using **apt**. Although Pulverizr works best with all its dependencies, 
+If you're on Ubuntu, almost all of these dependencies can be retrieved using **apt**. Although Pulverizr works best with all its dependencies, 
 
 * [gifsicle](http://www.lcdf.org/gifsicle/) 1.58+
 * [libjpeg](http://www.ijg.org/) (or **libjpeg-progs** if you're using **apt**)
+* [node](http://nodejs.org/) v0.1.95+
 * [node-promse](http://github.com/kriszyp/node-promise) (**included**)
 * [optipng](http://optipng.sourceforge.net/) 0.6.3+
 * [pngcrush](http://pmt.sourceforge.net/pngcrush/) 1.7.0+
