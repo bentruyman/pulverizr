@@ -5,4 +5,4 @@ all:
 install:
 	@# Should I really be doing this? Need a node package manager
 	cp -R lib/node-promise /usr/local/lib/
-	cp pulverize /usr/local/bin/pulverize
+	cp src/pulverize /usr/local/bin/pulverize
