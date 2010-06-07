@@ -337,7 +337,3 @@ function respond (name) {
 	responses[name].apply(this, args);
 	process.exit();
 }
-
-function inspect (obj) {
-	sys.puts(sys.inspect(obj));
-}
