@@ -92,7 +92,7 @@ var responses = {
 	},
 	help: function () {
 		sys.puts('Usage: pulverize [OPTION]... [FILE]...');
-		sys.puts('Pulverizr will smash your images down to size.');
+		sys.puts('Smash your images down to size.');
 		sys.puts('');
 		sys.puts('Options:');
 		sys.puts('');

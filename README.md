@@ -27,7 +27,7 @@ Once you have all the submodules, install Pulverizr to **/usr/local/bin** by run
 Since I'm too lazy right now to go through everything in detail, here's what you'll see if you run "**pulverize -h**".
 
     Usage: pulverize [OPTION]... [FILE]...
-    Pulverizr will smash your images down to size.
+    Smash your images down to size.
     
     Options:
     
