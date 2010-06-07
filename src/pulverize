@@ -278,8 +278,12 @@ function queue (filename) {
 		taskQueue.push(function () {
 			return compress(filename, task, promise);
 		});
+
+		report.fileCount++;
 	}
 }
+
+var counter = 0;
 
 function compress (filename, task, promise) {
 	var tmp = generateFilename();
@@ -290,17 +294,18 @@ function compress (filename, task, promise) {
 			var oldStats = fs.statSync(filename);
 
 			if (options.verbose) {
+				var index = '[' + ++counter + '/' + report.fileCount + '] ';
+				
 				if (newStats.size < oldStats.size) {
-					sys.puts('Compressed ' + filename + ' from ' + oldStats.size + ' bytes down to ' + newStats.size + ' bytes');
+					sys.puts(index + 'Compressed ' + filename + ' from ' + oldStats.size + ' bytes down to ' + newStats.size + ' bytes');
 				} else {
-					sys.puts(filename + ' could not be compressed any more');
+					sys.puts(index + filename + ' could not be compressed any more');
 				}
 			}
 
 			// Update the report
 			report.size.start += oldStats.size;
 			report.size.end += newStats.size;
-			report.fileCount++;
 
 			// If optimizations were made and this isn't a dry run, copy the new file over
 			if (!options.dry && newStats.size < oldStats.size) {
