@@ -27,20 +27,22 @@ Once you have all the submodules, install Pulverizr to **/usr/local/bin** by run
 Since I'm too lazy right now to go through everything in detail, here's what you'll see if you run "**pulverize -h**".
 
     Usage: pulverize [OPTION]... [FILE]...
-    Smash your images down to size.
-    
+    Smash your images down to size. Pulverizr uses several compressors/optimizers
+    to squeeze every last bit out of your images. If Pulverizr detects an
+    optimization, it overwrites the old image with the newly optimized one.
+
     Options:
-    
+
      General:
       -a, --aggressive	uses more aggressive compression algorithms (takes longer, 
     			works better)
       --dry-run		print summary but don't actually modify files
       -q, --quiet		pulverizer will stfu
       --verbose		verbose mode
-    
+
      Traversing:
       -R, --recursive	scan directories recursively
-    
+
      Other:
       -h, --help		print this handy dandy help page
       -v, --version		print program version

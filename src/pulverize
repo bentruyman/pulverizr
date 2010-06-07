@@ -92,7 +92,9 @@ var responses = {
 	},
 	help: function () {
 		sys.puts('Usage: pulverize [OPTION]... [FILE]...');
-		sys.puts('Smash your images down to size.');
+		sys.puts('Smash your images down to size. Pulverizr uses several compressors/optimizers');
+		sys.puts('to squeeze every last bit out of your images. If Pulverizr detects an');
+		sys.puts('optimization, it overwrites the old image with the newly optimized one.');
 		sys.puts('');
 		sys.puts('Options:');
 		sys.puts('');
