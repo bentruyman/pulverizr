@@ -233,12 +233,12 @@ if (args.length === 0 && options.input.length === 0) {
 			// Traversing
 			case '-R': options.recursive = true; break;
 			case '--recursive': options.recursive = true; break;
-			case '-g': options.fileTypes[fileTypes.GIF] = true; break;
-			case '--gif': options.fileTypes[fileTypes.GIF] = true; break;
-			case '-j': options.fileTypes[fileTypes.JPEG] = true; break;
-			case '--jpeg': options.fileTypes[fileTypes.JPEG] = true; break;
-			case '-p': options.fileTypes[fileTypes.PNG] = true; break;
-			case '--png': options.fileTypes[fileTypes.PNG] = true; break;
+			// case '-g': options.fileTypes[fileTypes.GIF] = true; break;
+			// case '--gif': options.fileTypes[fileTypes.GIF] = true; break;
+			// case '-j': options.fileTypes[fileTypes.JPEG] = true; break;
+			// case '--jpeg': options.fileTypes[fileTypes.JPEG] = true; break;
+			// case '-p': options.fileTypes[fileTypes.PNG] = true; break;
+			// case '--png': options.fileTypes[fileTypes.PNG] = true; break;
 			// Other
 			case '-h': respond('help'); break;
 			case '--help': respond('help'); break;
