@@ -2,6 +2,8 @@
 
 Pulverizr will smash your images down to size. It uses a number of free, and often times open source, programs to optimize and compress image files while still retaining their original appearance.
 
+Pulverizr is completely written in JavaScript intended to run in a [Node](http://nodejs.org/) environment. This means any idiot front-end developer such as myself can pick up the code and easily understand what's going on. Also, and normal developer could also pick it up and fix all the mistakes I made.
+
 ## Dependencies
 
 If you're on Ubuntu, almost all of these dependencies can be retrieved using **apt**. Although Pulverizr works best with all its dependencies, it will gracefully fail when it doesn't find a compressor it's looking for.
