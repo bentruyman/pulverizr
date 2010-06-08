@@ -4,7 +4,9 @@ Pulverizr will smash your images down to size. It uses a number of free, and oft
 
 ## Dependencies
 
-If you're on Ubuntu, almost all of these dependencies can be retrieved using **apt**. Although Pulverizr works best with all its dependencies, 
+If you're on Ubuntu, almost all of these dependencies can be retrieved using **apt**. Although Pulverizr works best with all its dependencies, it will gracefully fail when it doesn't find a compressor it's looking for.
+
+The compressors Pulverizr uses are admittedly a bit obscure and sometimes difficult to install on all platforms.
 
 * [gifsicle](http://www.lcdf.org/gifsicle/) 1.58+
 * [libjpeg](http://www.ijg.org/) (or **libjpeg-progs** if you're using **apt**)
