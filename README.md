@@ -13,11 +13,19 @@ If you're on Ubuntu, almost all of these dependencies can be retrieved using **a
 * [optipng](http://optipng.sourceforge.net/) 0.6.3+
 * [pngcrush](http://pmt.sourceforge.net/pngcrush/) 1.7.0+
 
+### On Mac OSX
+
+**Coming soon!**
+
 ### On Ubuntu
 
 To install the dependencies on Ubuntu:
 
     sudo apt-get install gifsicle libjpeg-progs optipng pngcrush
+
+### On Windows
+
+Good luck to you, sir.
 
 ## Installation
 
