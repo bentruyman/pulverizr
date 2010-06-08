@@ -36,7 +36,7 @@ var fileTypes = {
 		png: fileTypes.PNG
 	},
 	TMP = process.cwd(),
-	VERSION = 'BETA';
+	VERSION = '@VERSION';
 
 // Options to use throughout the program
 var options = {
@@ -47,6 +47,9 @@ var options = {
 	recursive: false,
 	verbose: false
 };
+
+// Used to keep track of what index of file we're on in the queue
+var counter = 0;
 
 // Variables to be help until the end report is printed
 var report = {
@@ -109,9 +112,9 @@ var responses = {
 		sys.puts('');
 		sys.puts(' Traversing:');
 		sys.puts('  -R, --recursive	scan directories recursively');
-		// sys.puts('  -g, --gif		whitelist gif images');
-		// sys.puts('  -j, --jpeg		whitelist jpeg images');
-		// sys.puts('  -p, --png		whitelist png images');
+		sys.puts('  -g, --gif		whitelist gif images');
+		sys.puts('  -j, --jpeg		whitelist jpeg images');
+		sys.puts('  -p, --png		whitelist png images');
 		sys.puts('');
 		sys.puts(' Other:');
 		sys.puts('  -h, --help		print this handy dandy help page');
@@ -126,7 +129,7 @@ var responses = {
 		var timeSpent = Math.round(((report.time.end - report.time.start) / 1000) * 10) / 10;
 
 		if (options.loud) {
-			sys.puts('===============================================================================');
+			sys.puts('');
 			sys.puts('Report:');
 			sys.puts('  - File Affected: ' + report.fileCount);
 			sys.puts('  - Old Size: ' + report.size.start + ' bytes');
@@ -165,7 +168,13 @@ tasks[fileTypes['JPEG']] = function (filename, promise) {
 	// jpegtran won't let us overwrite the file
 	var jpegtranTmp = generateFilename();
 
-	exec('jpegtran -optimize -outfile ' + jpegtranTmp + ' "' + filename + '"', function (error, stdout, stderror) {
+	var jpegtran = 'jpegtran -copy none ';
+	if (options.aggressive) {
+		jpegtran += '-progressive ';
+	}
+	jpegtran += '-optimize -outfile ' + jpegtranTmp + ' "' + filename + '"';
+
+	exec(jpegtran, function (error, stdout, stderror) {
 		if (error) {
 			if (error.code === 127 && options.loud) {
 				sys.puts('Could not find "jpegtran". Skipping on: ' + filename);
@@ -209,7 +218,7 @@ tasks[fileTypes['PNG']] = function (filename, promise) {
 	return promise;
 };
 
-if (options.input.length === 0) {
+if (args.length === 0 && options.input.length === 0) {
 	respond('help');
 } else {
 	args.forEach(function (arg) {
@@ -282,8 +291,6 @@ function queue (filename) {
 		report.fileCount++;
 	}
 }
-
-var counter = 0;
 
 function compress (filename, task, promise) {
 	var tmp = generateFilename();
