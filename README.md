@@ -13,6 +13,12 @@ If you're on Ubuntu, almost all of these dependencies can be retrieved using **a
 * [optipng](http://optipng.sourceforge.net/) 0.6.3+
 * [pngcrush](http://pmt.sourceforge.net/pngcrush/) 1.7.0+
 
+### On Ubuntu
+
+To install the dependencies on Ubuntu:
+
+    sudo apt-get install gifsicle libjpeg-progs optipng pngcrush
+
 ## Installation
 
 First you'll need to make sure all git submodules have been downloaded. To do this, simply run:
