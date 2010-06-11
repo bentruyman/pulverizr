@@ -19,7 +19,7 @@ The compressors Pulverizr uses are admittedly a bit obscure and sometimes diffic
 
 ### On Mac OSX
 
-**Coming soon!**
+**Coming soon!** In the meantime, look for the above dependencies in package managers such as [Fink](http://www.finkproject.org/) or [Homebrew](http://mxcl.github.com/homebrew/).
 
 ### On Ubuntu
 
@@ -29,15 +29,15 @@ To install the dependencies on Ubuntu:
 
 ### On Windows
 
-Good luck to you, sir.
+Good luck to you, fine sir.
 
 ## Installation
 
-First you'll need to make sure all git submodules have been downloaded. To do this, simply run:
+Before you can install Pulverizr, you need to first make sure all git submodules have been downloaded and you let Pulverizr get "built". To do this, simply run:
 
     make
 
-Once you have all the submodules, install Pulverizr to **/usr/local/bin** by running:
+Once Pulverizr is "made", install it to **/usr/local/bin** by running:
 
     make install
 
@@ -65,6 +65,22 @@ Since I'm too lazy right now to go through everything in detail, here's what you
      Other:
       -h, --help		print this handy dandy help page
       -v, --version		print program version
+
+### Single File
+
+    pulverize image.png
+    
+### Single Directory
+
+    pulverize /var/www/mysite.com/images/products/backgrounds
+
+### Multiple Files
+
+    pulverize foo.png bar.png baz.png qux.png
+
+### Recursive Directory
+
+    pulverize -R /var/www/mysite.com/images
 
 ## Special Thanks
 
