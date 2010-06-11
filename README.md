@@ -84,4 +84,4 @@ Since I'm too lazy right now to go through everything in detail, here's what you
 
 ## Special Thanks
 
-See **Dependencies**
+See **Dependencies**, and [Smush.it](http://smush.it)
