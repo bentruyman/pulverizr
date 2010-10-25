@@ -12,7 +12,6 @@ The compressors Pulverizr uses are admittedly a bit obscure and sometimes diffic
 
 * [gifsicle](http://www.lcdf.org/gifsicle/) 1.58+
 * [libjpeg](http://www.ijg.org/) (or **libjpeg-progs** if you're using **apt**)
-* [node](http://nodejs.org/) v0.1.95+
 * [optipng](http://optipng.sourceforge.net/) 0.6.3+
 * [pngcrush](http://pmt.sourceforge.net/pngcrush/) 1.7.0+
 
@@ -34,13 +33,7 @@ Good luck to you, fine sir.
 
 ## Installation
 
-Before you can install Pulverizr, you need to first make sure all git submodules have been downloaded and you let Pulverizr get "built". To do this, simply run:
-
-    make
-
-Once Pulverizr is "made", install it to **/usr/local/bin** by running:
-
-    make install
+    npm install pulverizr
 
 ## Usage
 

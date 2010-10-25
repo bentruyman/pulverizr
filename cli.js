@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-;
-require.paths.push('/usr/local/lib/node');
 
 var pulverizr = require('./pulverizr')
   , sys = require('sys');
