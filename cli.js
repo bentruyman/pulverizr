@@ -75,7 +75,7 @@ var responses = {
 		}
 	},
 	version: function () {
-		sys.puts('Pulverizr v0.0.2');
+		sys.puts('Pulverizr v0.5.2');
 	}
 };
 
