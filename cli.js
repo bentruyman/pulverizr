@@ -11,7 +11,7 @@ var responses = {
 	},
 	help: function () {
 		sys.puts([
-			'Usage: pulverize [OPTION]... [FILE]...',
+			'Usage: pulverize [OPTIONS]... -- [FILES]...',
 			'Smash your images down to size. Pulverizr uses several compressors/optimizers',
 			'to squeeze every last bit out of your images. If Pulverizr detects an',
 			'optimization, it overwrites the old image with the newly optimized one.',
@@ -22,7 +22,7 @@ var responses = {
 			'  -a, --aggressive	uses more aggressive compression algorithms (takes longer, \n\t\t\tworks better)',
 			'  --dry-run		print summary but don\'t actually modify files',
 			'  -q, --quiet		pulverizer will stfu',
-			'  --verbose		verbose mode',
+			'  -v, --verbose		verbose mode',
 			'',
 			' Traversing:',
 			'  -R, --recursive	scan directories recursively',
@@ -32,7 +32,8 @@ var responses = {
 			'',
 			' Other:',
 			'  -h, --help		print this handy dandy help page',
-			'  -v, --version		print program version'
+			'  -v, --version		print program version',
+			''
 		].join('\n'));
 	},
 	report: function () {
@@ -73,8 +74,30 @@ console.log(argv);
 
 if (argv.help || argv.h) {
 	respond('help');
-} else if (argv.version) {
+} else if (argv.v || argv.version) {
 	respond('version');
+} else if (argv._.length) {
+	var settings = {};
+
+	settings.inputs = argv._;
+
+	if (argv.a || argv.aggressive) {
+		settings.aggressive = true;
+	}
+
+	if (argv['dry-run']) {
+		settings.dry = true;
+	}
+
+	if (argv.q || argv.quiet) {
+		settings.quiet = true;
+	}
+
+	if (argv.R || argv.recursive) {
+		settings.recursive = true;
+	}
+
+	pulverizr.compress(argv._, settings);
 } else {
 	respond('help');
 }

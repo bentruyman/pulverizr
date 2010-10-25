@@ -13,13 +13,13 @@ module.exports = {
 		var defaults = {
 			dry: false,
 			inputs: [],
-			guiet: false,
+			quiet: false,
 			recursive: false
 		};
 
 		// Merge defaults with settings
 		for (key in defaults) {
-			settings[key] = settings[key] || defaults[key];
+			settings[key] = (typeof settings[key] !== 'undefined') ? settings[key] : defaults[key];
 		}
 
 		// Normalize inputs to array if just given a string
