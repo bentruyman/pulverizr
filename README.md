@@ -74,8 +74,8 @@ you'll see if you run "**pulverize -h**".
 
      General:
       -a, --aggressive	uses more aggressive compression algorithms (takes longer, 
-    			works better)
-      --dry-run		print summary but don't actually modify files
+    					works better)
+      --dry-run			print summary but don't actually modify files
       -q, --quiet		pulverizer will stfu
       -v, --verbose		verbose mode
 
@@ -84,7 +84,7 @@ you'll see if you run "**pulverize -h**".
 
      Other:
       -h, --help		print this handy dandy help page
-      --version		print program version
+      --version			print program version
 
 ### Single File
 
