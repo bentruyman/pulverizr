@@ -67,6 +67,9 @@ you'll see if you run "**pulverize -h**".
     to squeeze every last bit out of your images. If Pulverizr detects an
     optimization, it overwrites the old image with the newly optimized one.
 
+    (Note: due to the way the args are parsed, two hyphens -- are required after
+     binary flags if they appear before file paths)
+
     Options:
 
      General:
