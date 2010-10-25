@@ -1,0 +1,35 @@
+var sys = require('sys')
+  , Job = require('./lib/job');
+
+/* 
+ * This whole app is using sync'd IO calls. Consider using async methods.
+ * The problem with async operations is that the compression tasks pile up and
+ * can become unresponsive. Also look into those pesky "max open file
+ * descriptors" errors
+ */
+
+module.exports = {
+	compress: function (inputs, settings) {
+		var defaults = {
+			dry: false,
+			inputs: [],
+			guiet: false,
+			recursive: false
+		};
+
+		// Merge defaults with settings
+		for (key in defaults) {
+			settings[key] = settings[key] || defaults[key];
+		}
+
+		// Normalize inputs to array if just given a string
+		(typeof inputs === 'string') && settings.inputs.push(inputs);
+
+		// Create a new pulverizr job
+		var job = new Job(settings);
+
+		job.run();
+
+		return job;
+	}
+};

@@ -1,0 +1,17 @@
+{
+	"name": "pulverizr",
+	"description": "Smash your images down to size.",
+	"version": "0.0.1",
+	"author": "Ben Truyman <bentruyman@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/bentruyman/pulverizr"
+	},
+	"dependencies": {
+		"promised-io": ">= 0.0.1"
+	},
+	"keywords": ["image", "compressor", "compression"],
+	"bin" : { "pulverize" : "./cli.js" },
+	"main" : "pulverizr",
+	"engines": { "node": ">= 0.2.0" }
+}
