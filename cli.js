@@ -70,7 +70,6 @@ function respond (type) {
 }
 
 var argv = require('optimist').argv;
-console.log(argv);
 
 if (argv.help || argv.h) {
 	respond('help');
