@@ -59,7 +59,7 @@ var responses = {
 		}
 	},
 	version: function () {
-		sys.puts('Pulverizr v0.0.1');
+		sys.puts('Pulverizr v0.0.2');
 	}
 };
 

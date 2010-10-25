@@ -1,13 +1,15 @@
 {
 	"name": "pulverizr",
 	"description": "Smash your images down to size.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "Ben Truyman <bentruyman@gmail.com>",
 	"repository": {
 		"type": "git",
 		"url": "http://github.com/bentruyman/pulverizr"
 	},
 	"dependencies": {
+		"coloured-log": ">= 0.9.4",
+		"optimist": ">= 0.0.5",
 		"promised-io": ">= 0.0.1"
 	},
 	"keywords": ["image", "compressor", "compression"],
