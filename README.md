@@ -39,7 +39,8 @@ difficult to install on all platforms.
 
 ### On Mac OSX
 
-If you're using **homebrew**, install the following packages:
+If you're using [homebrew](http://mxcl.github.com/homebrew/), install the
+following packages:
 
     brew install gifsicle libjpeg optipng pngcrush
 
@@ -47,7 +48,7 @@ If you're using **homebrew**, install the following packages:
 
 To install the dependencies on Ubuntu:
 
-    sudo apt-get install gifsicle libjpeg-progs optipng pngcrush
+    apt-get install gifsicle libjpeg-progs optipng pngcrush
 
 ### On Windows
 
