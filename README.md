@@ -6,8 +6,8 @@ still retaining their original appearance.
 
 While modern image editor's, like Photoshop's, compressors do a decent job at
 cutting the extra fat around images, they sometimes leave behind extras you
-probably don't want or need. For example, EXIF data in JPEGs, poorly optimized
-color tables in PNGs and redundant frames in GIFs.
+probably don't want or need. For example, EXIF data in JPEGs, color-correction
+data in PNGs and redundant frames in GIFs.
 
 Pulverizr uses a handful of compressors to perform a number of lossless
 compression routines to squeeze every last bit out of your images (see
