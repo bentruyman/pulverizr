@@ -62,6 +62,8 @@ Good luck to you, fine sir.
 Since I'm too lazy right now to go through everything in detail, here's what
 you'll see if you run "**pulverize -h**".
 
+**Note: Be sure to test before you overwrite your images by using `--dry-run`**
+
     Usage: pulverize [OPTIONS]... -- FILES...
     Smash your images down to size. Pulverizr uses several compressors/optimizers
     to squeeze every last bit out of your images. If Pulverizr detects an
