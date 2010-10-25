@@ -102,6 +102,10 @@ you'll see if you run "**pulverize -h**".
 
     pulverize -R -- /var/www/mysite.com/images
 
+### Aggressive Recursive Directory 
+
+    pulverize -aR -- /var/www/mysite.com/images
+
 ## Special Thanks
 
 See **Dependencies**, and [Smush.it](http://smush.it)
