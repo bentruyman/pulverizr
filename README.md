@@ -2,7 +2,7 @@
 
 Pulverizr will smash your images down to size. It uses a number of free, and often times open source, programs to optimize and compress image files while still retaining their original appearance.
 
-Pulverizr is completely written in JavaScript intended to run in a [Node](http://nodejs.org/) environment. This means any idiot front-end developer such as myself can pick up the code and easily understand what's going on. Also, and normal developer could also pick it up and fix all the mistakes I made.
+Pulverizr is completely written in JavaScript intended to run in a [NodeJS](http://nodejs.org/) environment. This means any idiot front-end developer such as myself can pick up the code and easily understand what's going on. Also, and normal developer could also pick it up and fix all the mistakes I made.
 
 ## Dependencies
 
@@ -13,13 +13,14 @@ The compressors Pulverizr uses are admittedly a bit obscure and sometimes diffic
 * [gifsicle](http://www.lcdf.org/gifsicle/) 1.58+
 * [libjpeg](http://www.ijg.org/) (or **libjpeg-progs** if you're using **apt**)
 * [node](http://nodejs.org/) v0.1.95+
-* [node-promse](http://github.com/kriszyp/node-promise) (**included**)
 * [optipng](http://optipng.sourceforge.net/) 0.6.3+
 * [pngcrush](http://pmt.sourceforge.net/pngcrush/) 1.7.0+
 
 ### On Mac OSX
 
-**Coming soon!** In the meantime, look for the above dependencies in package managers such as [Fink](http://www.finkproject.org/) or [Homebrew](http://mxcl.github.com/homebrew/).
+If you're using **homebrew**, install the following packages:
+
+    brew install gifsicle libjpeg optipng pngcrush
 
 ### On Ubuntu
 
@@ -45,7 +46,7 @@ Once Pulverizr is "made", install it to **/usr/local/bin** by running:
 
 Since I'm too lazy right now to go through everything in detail, here's what you'll see if you run "**pulverize -h**".
 
-    Usage: pulverize [OPTION]... [FILE]...
+    Usage: pulverize [OPTIONS]... -- [FILES]...
     Smash your images down to size. Pulverizr uses several compressors/optimizers
     to squeeze every last bit out of your images. If Pulverizr detects an
     optimization, it overwrites the old image with the newly optimized one.
@@ -80,7 +81,7 @@ Since I'm too lazy right now to go through everything in detail, here's what you
 
 ### Recursive Directory
 
-    pulverize -R /var/www/mysite.com/images
+    pulverize -R -- /var/www/mysite.com/images
 
 ## Special Thanks
 
