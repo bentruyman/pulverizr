@@ -14,7 +14,8 @@ module.exports = {
 			dry: false,
 			inputs: [],
 			quiet: false,
-			recursive: false
+			recursive: false,
+			verbose: false
 		};
 
 		// Merge defaults with settings

@@ -20,7 +20,7 @@ var responses = {
 			'  -a, --aggressive	uses more aggressive compression algorithms (takes longer, \n\t\t\tworks better)',
 			'  --dry-run		print summary but don\'t actually modify files',
 			'  -q, --quiet		pulverizer will stfu',
-			// '  -v, --verbose		verbose mode',
+			'  -v, --verbose		verbose mode',
 			'',
 			' Traversing:',
 			'  -R, --recursive	scan directories recursively',
@@ -71,7 +71,7 @@ var argv = require('optimist').argv;
 
 if (argv.help || argv.h) {
 	respond('help');
-} else if (argv.v || argv.version) {
+} else if (argv.version) {
 	respond('version');
 } else if (argv._.length) {
 	var settings = {};
@@ -92,6 +92,10 @@ if (argv.help || argv.h) {
 
 	if (argv.R || argv.recursive) {
 		settings.recursive = true;
+	}
+
+	if (argv.v | argv.verbose) {
+		settings.verbose = true;
 	}
 
 	pulverizr.compress(argv._, settings);
