@@ -19,7 +19,7 @@ it](http://github.com/bentruyman/pulverizr/issues)!
 Pulverizr is completely written in JavaScript intended to run in a
 [NodeJS](http://nodejs.org/) environment. This means any idiot front-end
 developer such as myself can pick up the code and easily understand what's
-going on. Also, and normal developer could also pick it up and fix all the
+going on. Also, any normal developer could also pick it up and fix all the
 mistakes I made.
 
 ## Dependencies
