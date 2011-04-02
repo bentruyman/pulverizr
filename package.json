@@ -1,16 +1,27 @@
 {
-	"name": "pulverizr",
-	"description": "Smash your images down to size.",
-	"version": "0.5.1",
+	"name": "pulverizr-bal",
+	"description": "Smash your images down to size. Includes recent fixes by balupton.",
+	"version": "0.5.2",
 	"author": "Ben Truyman <bentruyman@gmail.com>",
+	"maintainers": [
+		{
+			"name": "Ben Truyman",
+			"email": "bentruyman@gmail.com"
+		},
+		{
+			"name": "Benjamin Lupton",
+			"email": "b@lupton.cc",
+			"web": "http://balupton.com"
+		}
+	],
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/bentruyman/pulverizr"
+		"url": "http://github.com/balupton/pulverizr"
 	},
 	"dependencies": {
 		"coloured-log": ">= 0.9.4",
 		"optimist": ">= 0.0.5",
-		"promised-io": ">= 0.0.1"
+		"promised-io": ">= 0.2.3"
 	},
 	"keywords": ["image", "compressor", "compression"],
 	"directories" : { "lib" : "./lib" },
@@ -20,7 +31,7 @@
 	"licenses": [
 		{
 			"type": "BSD",
-			"url": "http://github.com/bentruyman/pulverizr/raw/master/LICENSE"
+			"url": "http://github.com/balupton/pulverizr/raw/master/LICENSE"
 		}
 	]
 }
