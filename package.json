@@ -1,7 +1,7 @@
 {
 	"name": "pulverizr",
 	"description": "Smash your images down to size.",
-	"version": "0.5.3",
+	"version": "0.5.4",
 	"author": "Ben Truyman <bentruyman@gmail.com>",
 	"maintainers": [
 		{
