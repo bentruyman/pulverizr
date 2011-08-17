@@ -1,5 +1,4 @@
-var sys = require('sys')
-  , Job = require('./lib/job');
+var Job = require('./lib/job');
 
 /* 
  * This whole app is using sync'd IO calls. Consider using async methods.
