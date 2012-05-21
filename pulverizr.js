@@ -9,21 +9,7 @@ var Job = require('./lib/job');
 
 module.exports = {
   compress: function (inputs, settings) {
-    var defaults = {
-      dry: false,
-      inputs: [],
-      quiet: false,
-      recursive: false,
-      verbose: false
-    };
-    
-    // Merge defaults with settings
-    Object.keys(defaults).forEach(function (key) {
-      settings[key] = (typeof settings[key] !== 'undefined') ? settings[key] : defaults[key];
-    });
-    
-    // Normalize inputs to array if just given a string
-    (typeof inputs === 'string') && settings.inputs.push(inputs);
+    settings.inputs = inputs;
     
     // Create a new pulverizr job
     var job = new Job(settings);

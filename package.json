@@ -2,16 +2,16 @@
   "name": "pulverizr",
   "description": "Smash your images down to size.",
   "version": "0.7.0",
-  "author": "Ben Truyman <bentruyman@gmail.com>",
-  "maintainers": [
-    {
-      "name": "Ben Truyman",
-      "email": "bentruyman@gmail.com"
-    },
+  "author": {
+    "name": "Ben Truyman",
+    "email": "bentruyman@gmail.com",
+    "url": "http://bentruyman.com/"
+  },
+  "contributors": [
     {
       "name": "Benjamin Lupton",
       "email": "b@lupton.cc",
-      "web": "http://balupton.com"
+      "url": "http://balupton.com/"
     }
   ],
   "repository": {
@@ -20,8 +20,9 @@
   },
   "dependencies": {
     "coloured-log": ">= 0.9.7",
-    "optimist": ">= 0.2.6",
-    "q": ">= 0.8.5"
+    "commander": ">= 0.6.0",
+    "q": ">= 0.8.5",
+    "temp": ">= 0.4.0"
   },
   "keywords": ["image", "compressor", "compression"],
   "directories" : { "lib" : "./lib" },
