@@ -28,7 +28,8 @@
   "directories" : { "lib" : "./lib" },
   "bin" : { "pulverize" : "./cli.js" },
   "main" : "pulverizr",
-  "engines": { "node": ">= 0.5.0" },
+  "engines": { "node": ">= 0.6.0" },
+  "preferGlobal": true,
   "licenses": [
     {
       "type": "BSD",
