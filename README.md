@@ -60,34 +60,19 @@ Good luck to you, fine sir.
 
 ## Usage
 
-Since I'm too lazy right now to go through everything in detail, here's what
-you'll see if you run "**pulverize -h**".
-
 **Note: Be sure to test before you overwrite your images by using `--dry-run`**
 
-    Usage: pulverize [OPTIONS]... -- FILES...
-    Smash your images down to size. Pulverizr uses several compressors/optimizers
-    to squeeze every last bit out of your images. If Pulverizr detects an
-    optimization, it overwrites the old image with the newly optimized one.
-
-    (Note: due to the way the args are parsed, two hyphens -- are required after
-     binary flags if they appear before file paths)
+Usage: pulverize [options] <file...>
 
     Options:
 
-     General:
-      -a, --aggressive	uses more aggressive compression algorithms (takes longer, 
-    					works better)
-      --dry-run			print summary but don't actually modify files
-      -q, --quiet		pulverizer will stfu
-      -v, --verbose		verbose mode
-
-     Traversing:
-      -R, --recursive	scan directories recursively
-
-     Other:
-      -h, --help		print this handy dandy help page
-      --version			print program version
+      -h, --help        output usage information
+      -V, --version     output the version number
+      -a, --aggressive  Uses more aggressive compression algorithms (takes longer, works better)
+      --dry-run         Print summary but don't actually modify files
+      -q, --quiet       Pulverizer will not report
+      -R, --recursive   Recurse through directories
+      -v, --verbose     Verbose mode
 
 ### Single File
 
@@ -105,7 +90,7 @@ you'll see if you run "**pulverize -h**".
 
     pulverize -R -- /var/www/mysite.com/images
 
-### Aggressive Recursive Directory 
+### Aggressive Recursive Directory
 
     pulverize -aR -- /var/www/mysite.com/images
 
