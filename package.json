@@ -1,7 +1,7 @@
 {
 	"name": "pulverizr",
 	"description": "Smash your images down to size.",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"author": "Ben Truyman <bentruyman@gmail.com>",
 	"maintainers": [
 		{
@@ -21,7 +21,7 @@
 	"dependencies": {
 		"coloured-log": ">= 0.9.7",
 		"optimist": ">= 0.2.6",
-		"promised-io": ">= 0.2.3"
+		"q": ">= 0.8.5"
 	},
 	"keywords": ["image", "compressor", "compression"],
 	"directories" : { "lib" : "./lib" },

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-var pulverizr = require('./pulverizr')
-  , sys = require('sys');
+var pulverizr = require('./pulverizr'),
+    util = require('util');
 
 var responses = {
 	error: function (message) {
-		sys.puts('Error occurred: ' + message);
+		util.puts('Error occurred: ' + message);
 	},
 	help: function () {
-		sys.puts([
+		util.puts([
 			'Usage: pulverize [OPTIONS]... -- FILES...',
 			'Smash your images down to size. Pulverizr uses several compressors/optimizers',
 			'to squeeze every last bit out of your images. If Pulverizr detects an',
@@ -59,23 +59,23 @@ var responses = {
 		var timeSpent = Math.round(((report.time.end - report.time.start) / 1000) * 10) / 10;
 
 		if (options.loud) {
-			sys.puts('');
-			sys.puts('Report:');
-			sys.puts('  - File Affected: ' + report.fileCount);
-			sys.puts('  - Old Size: ' + report.size.start + ' bytes');
-			sys.puts('  - New Size: ' + report.size.end + ' bytes');
-			sys.puts('  - Savings: ' + diff.size + 'KB (' + diff.perc + '%)');
-			sys.puts('  - Time Spent: ' + timeSpent + ' seconds');
+			util.puts('');
+			util.puts('Report:');
+			util.puts('  - File Affected: ' + report.fileCount);
+			util.puts('  - Old Size: ' + report.size.start + ' bytes');
+			util.puts('  - New Size: ' + report.size.end + ' bytes');
+			util.puts('  - Savings: ' + diff.size + 'KB (' + diff.perc + '%)');
+			util.puts('  - Time Spent: ' + timeSpent + ' seconds');
 
 			if (options.dry) {
-				sys.puts('\nThis was a dry run. No files were actually modified.');
+				util.puts('\nThis was a dry run. No files were actually modified.');
 			}
 
-			sys.puts('');
+			util.puts('');
 		}
 	},
 	version: function () {
-		sys.puts('Pulverizr v0.5.1');
+		util.puts('Pulverizr v' + require('./package').version);
 	}
 };
 
