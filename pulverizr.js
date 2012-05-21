@@ -8,13 +8,11 @@ var Job = require('./lib/job');
  */
 
 module.exports = {
-  compress: function (inputs, settings) {
+  createJob: function (inputs, settings) {
     settings.inputs = inputs;
     
     // Create a new pulverizr job
     var job = new Job(settings);
-    
-    job.run();
     
     return job;
   }
