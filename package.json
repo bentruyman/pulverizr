@@ -1,37 +1,37 @@
 {
-	"name": "pulverizr",
-	"description": "Smash your images down to size.",
-	"version": "0.7.0",
-	"author": "Ben Truyman <bentruyman@gmail.com>",
-	"maintainers": [
-		{
-			"name": "Ben Truyman",
-			"email": "bentruyman@gmail.com"
-		},
-		{
-			"name": "Benjamin Lupton",
-			"email": "b@lupton.cc",
-			"web": "http://balupton.com"
-		}
-	],
-	"repository": {
-		"type": "git",
-		"url": "http://github.com/bentruyman/pulverizr"
-	},
-	"dependencies": {
-		"coloured-log": ">= 0.9.7",
-		"optimist": ">= 0.2.6",
-		"q": ">= 0.8.5"
-	},
-	"keywords": ["image", "compressor", "compression"],
-	"directories" : { "lib" : "./lib" },
-	"bin" : { "pulverize" : "./cli.js" },
-	"main" : "pulverizr",
-	"engines": { "node": ">= 0.5.0" },
-	"licenses": [
-		{
-			"type": "BSD",
-			"url": "http://github.com/bentruyman/pulverizr/raw/master/LICENSE"
-		}
-	]
+  "name": "pulverizr",
+  "description": "Smash your images down to size.",
+  "version": "0.7.0",
+  "author": "Ben Truyman <bentruyman@gmail.com>",
+  "maintainers": [
+    {
+      "name": "Ben Truyman",
+      "email": "bentruyman@gmail.com"
+    },
+    {
+      "name": "Benjamin Lupton",
+      "email": "b@lupton.cc",
+      "web": "http://balupton.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bentruyman/pulverizr"
+  },
+  "dependencies": {
+    "coloured-log": ">= 0.9.7",
+    "optimist": ">= 0.2.6",
+    "q": ">= 0.8.5"
+  },
+  "keywords": ["image", "compressor", "compression"],
+  "directories" : { "lib" : "./lib" },
+  "bin" : { "pulverize" : "./cli.js" },
+  "main" : "pulverizr",
+  "engines": { "node": ">= 0.5.0" },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://github.com/bentruyman/pulverizr/raw/master/LICENSE"
+    }
+  ]
 }
