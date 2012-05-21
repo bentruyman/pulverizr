@@ -56,7 +56,7 @@ Good luck to you, fine sir.
 
 ## Installation
 
-    npm install pulverizr
+    npm install -g pulverizr
 
 ## Usage
 
