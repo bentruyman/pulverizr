@@ -45,7 +45,7 @@ if (program.quiet) {
 var job = pulverizr.createJob(program.args, program);
 
 job.on('start', function () {
-  log.info('Beginning compressiong job');
+  log.info('Beginning compression job');
 });
 
 job.on('compression', function (data) {
