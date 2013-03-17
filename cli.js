@@ -45,7 +45,7 @@ if (program.quiet) {
 var job = pulverizr.createJob(program.args, program);
 
 job.on('start', function () {
-  log.info('Beginning compressiong job');
+  log.info('Beginning compression job');
 });
 
 job.on('compression', function (data) {
@@ -76,7 +76,7 @@ job.on('finish', function (report) {
     log.info('Files were not modified because this was a dry run.');
   }
   
-  log.info('Finished compressiong job');
+  log.info('Finished compression job');
   log.info('Scanned ' + report.fileCount + ' files');
   log.info('Saved ' + Math.ceil((r.size.start - r.size.end) / 1024) + 'kb');
 });
