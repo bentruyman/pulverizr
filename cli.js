@@ -78,7 +78,7 @@ job.on('finish', function (report) {
   
   log.info('Finished compression job');
   log.info('Scanned ' + report.fileCount + ' files');
-  log.info('Saved ' + Math.ceil((r.size.start - r.size.end) / 1024) + 'kb');
+  log.info('Saved ' + Math.ceil((report.size.start - report.size.end) / 1024) + 'kb');
 });
 
 job.run();
