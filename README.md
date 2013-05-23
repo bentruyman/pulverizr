@@ -1,3 +1,5 @@
+**THIS PROJECT IS NO LONGER UNDER ACTIVE DEVELOPMENT**
+
 # Pulverizr
 
 Pulverizr will smash your images down to size. It uses a number of free, and
