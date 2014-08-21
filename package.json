@@ -21,7 +21,7 @@
   "dependencies": {
     "coloured-log": ">= 0.9.7",
     "commander": ">= 0.6.0",
-    "q": ">= 0.8.5",
+    "q": "~ 0.8.5",
     "temp": ">= 0.4.0"
   },
   "keywords": ["image", "compressor", "compression"],
